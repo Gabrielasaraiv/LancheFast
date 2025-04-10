@@ -10,8 +10,22 @@ class Index extends Component
 {
     use WithPagination;
 
+    public $confirmingDelete = false;
+    public $clientIdToDelete = null;
     public $search = '';
     public $perPage = 10;
+
+    public function confirmDelete($clienteId)
+    {
+        $this->confirmingDelete = true;
+        $this->clientIdToDelete = $clienteId;
+    }
+
+    public function cancelDelete()
+    {
+        $this->confirmingDelete = false;
+        $this->clientIdToDelete = null;
+    }
 
     protected $queryString = [
         'search' =>['except'=> ''],
@@ -31,5 +45,8 @@ class Index extends Component
     public function delete($id){
         Cliente::findOrFail($id)->delete();
         session()->flash('message', 'Cliente deletado com sucesso.');
+
+        $this->confirmingDelete = false;
+        $this->clientIdToDelete = null;
     }
 }
