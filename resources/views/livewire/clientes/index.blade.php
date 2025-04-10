@@ -13,11 +13,10 @@
     <div class="card">
         <div class="card-body">
             <div class="row mb-3">
-                <div class="col-mb-6">
+                <div class="col-md-6">
                     <input type="text" wire:model.debounce.300ms="search" class="form-control"
                         placeholder="Buscar clientes...">
                 </div>
-
                 <div class="col-md-3">
                     <select wire:model="perPage" class="form-select">
                         <option value="10">10 por página</option>
@@ -26,7 +25,7 @@
                         <option value="100">100 por página</option>
                     </select>
                 </div>
-
+            </div>
                 @if (session()->has('message'))
                     <div class="alert alert-success">
                         {{ session('message') }}
@@ -76,7 +75,7 @@
                 </div>
 
                 <div class="mt-3">
-                    {{$clientes->links()}}
+                    {{ $clientes->links() }}
                 </div>
             </div>
         </div>

@@ -22,4 +22,9 @@ class Cliente extends Model
         'senha',
         'remember_token'
     ];
+
+    public function pedidos()
+    {
+        //return $this->hasMany(Pedido::class);
+    }
 }
