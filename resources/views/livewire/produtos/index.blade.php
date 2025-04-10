@@ -47,7 +47,7 @@
                         @forelse($produtos as $produto)
                             <tr>
                                 <td>{{ $produto->nome }}</td>
-                                <td>{{ $produto->igredientes }}</td>
+                                <td>{{ $produto->ingredientes }}</td>
                                 <td>{{ $produto->valor }}</td>
                                 <td>
                                     <a href="{{ route('produtos.show', $produto->id) }}" class="btn btn-sm btn-info">
